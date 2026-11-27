@@ -11,7 +11,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-:root {
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: auto;
+}
+    :root {
     --bg: #080910;
     --panel: #11121d;
     --panel2: #171827;
@@ -914,6 +919,13 @@ function closeOutside(event) {
 
 document.addEventListener("keydown", event => {
     if (event.key === "Escape") closeModal();
+});
+    document.querySelectorAll("img").forEach(img => {
+    img.addEventListener("contextmenu", event => {
+        event.preventDefault();
+    });
+
+    img.draggable = false;
 });
 </script>
 
